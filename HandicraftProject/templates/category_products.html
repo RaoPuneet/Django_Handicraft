@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category.name }} - Products</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<header class="top-header">
+    <h1>{{ category.name }}</h1>
+    <a href="{% url 'home' %}">
+        <button class="btn">⬅ Back to Home</button>
+    </a>
+</header>
+
+<section id="products">
+
+    {% for product in products %}
+        <article class="product">
+
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+                <img src="{% static 'pictures/default.png' %}" alt="No Image">
+            {% endif %}
+
+            <h2>{{ product.name }}</h2>
+            <p class="price">₹{{ product.price }}</p>
+
+            <a href="{% url 'add_to_cart' product.id %}">
+                <button class="cart">Add to Cart</button>
+            </a>
+
+            <a href="{% url 'payment' %}">
+                <button>Buy Now</button>
+            </a>
+
+        </article>
+
+    {% empty %}
+        <p style="text-align:center;">No products in this category</p>
+    {% endfor %}
+
+</section>
+
+</body>
+</html>

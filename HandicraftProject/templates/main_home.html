@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handicraft Khazana Shop</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles1.css' %}">
+</head>
+
+<body>
+<header class="top-header">
+    <h1>Handicraft Khazana Shop</h1>
+
+    <div class="nav-buttons">
+        {% if user.is_authenticated %}
+            <span class="welcome">Hii! {{ user.username }}</span>
+            
+            <a href="{% url 'logout' %}">
+                <button class="btn">Logout</button>
+            </a>
+
+            <a href="{% url 'cart' %}">
+                <button class="btn">🛒 Cart ({{ cart_count }})</button>
+            </a>
+
+            {% if user.userprofile.role == 'seller' %}
+                <a href="{% url 'seller_dashboard' %}">
+                    <button class="btn" style="background-color: #27ae60; color: white;">📊 Dashboard</button>
+                </a>
+            {% endif %}
+
+        {% else %}
+            <a href="{% url 'login' %}"><button class="btn">Login</button></a>
+            <a href="{% url 'signup' %}"><button class="btn">Sign Up</button></a>
+        {% endif %}
+    </div>
+</header>
+
+    <div class="slider">
+        <figure>
+            <div class="slide"><img src="{% static 'pictures/a1.png' %}" alt=""></div>
+            <div class="slide"><img src="{% static 'pictures/a2.png' %}" alt=""></div>
+            <div class="slide"><img src="{% static 'pictures/a3.png' %}" alt=""></div>
+            <div class="slide"><img src="{% static 'pictures/all.png' %}" alt=""></div>
+        </figure>
+    </div>
+
+    <img src="{% static 'pictures/a111.png' %}" alt="" style="width: 100%;">
+    <img src="{% static 'pictures/a11.png' %}" alt="" style="width: 100%;">
+
+    <center><h1>New Arrivals</h1></center>
+    <center><h5>Take a look at the latest masterpieces from our expert artisans</h5></center>
+    
+    <section id="products">
+        {% for product in new_arrivals %}
+        <article class="product">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% else %}
+                <img src="{% static 'pictures/default.png' %}" alt="No Image">
+            {% endif %}
+
+            <h2>{{ product.name }}</h2>           
+            <p class="price">₹{{ product.price }}</p>
+
+            <p class="seller-info">
+                By: {{ product.seller.first_name|default:"Master Artisan" }}
+            </p>
+
+            <a href="{% url 'add_to_cart' product.id %}">
+                <button class="cart">Add to Cart</button>
+            </a>
+        </article>
+        {% empty %}
+            <p style="text-align:center; grid-column: 1 / -1;">No products available</p>
+        {% endfor %}
+    </section>
+
+    <center><h1>It's All Here!</h1></center>
+    <center><h5>Check out our complete range of craft works</h5></center>
+
+    <section id="products1">
+        {% for category in categories %}
+        <article class="product">
+            <a href="{% url 'category' category.id %}">
+                {% if category.image %}
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                {% else %}
+                    <img src="{% static 'pictures/default.png' %}" alt="No Image">
+                {% endif %}
+            </a>
+            <h2>{{ category.name }}</h2>
+        </article>
+        {% endfor %}
+    </section>
+
+    <section>
+        <center><h1>The Maestros Recommend</h1></center>
+        <center><h3>Specially curated collections that showcase the best from our Maestros</h3></center>
+        <img src="{% static 'pictures/d11.png' %}" alt="" style="width: 100%;">
+    </section>
+
+    <div style="padding: 40px 5%;">
+        <h1>Craft Maestros: Your One-Stop Destination</h1>
+        <p style="text-align: justify;">
+            The 21st century has seen a revolution in shopping. Whether you are looking for Brass Engraving, Wood Carving, 
+            or Miniature Paintings, Craft Maestros brings the finest handicrafts of India to your doorstep with a single click. 
+            Shop 24/7 and support local artisans from across the country.
+        </p>
+    </div>
+   
+    <footer>
+        <div class="footer-content">
+          <p>&copy; 2026 Handicraft Khazana Shop</p>
+          <p>Contact us: info@handicraftkhazana</p>
+          <p>Phone: 7015770990, 7206518299</p>
+        </div>
+    </footer>
+</body>
+</html>

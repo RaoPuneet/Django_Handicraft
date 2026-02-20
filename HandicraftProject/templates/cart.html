@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart | Handicraft Khazana</title>
+    <link rel="stylesheet" href="{% static 'cartcss.css' %}">
+</head>
+
+<body>
+
+<header class="top-header">
+    <h1>🛒 Your Shopping Cart</h1>
+
+    <div class="nav-buttons">
+        <a href="{% url 'home' %}">
+            <button class="btn">Continue Shopping</button>
+        </a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">
+                <button class="btn">Logout</button>
+            </a>
+        {% else %}
+            <a href="{% url 'login' %}">
+                <button class="btn">Login</button>
+            </a>
+        {% endif %}
+    </div>
+</header>
+
+<div class="cart-container">
+
+    {% if cart %}
+        {% for key, item in cart.items %}
+        <div class="cart-item">
+
+            <!-- Product Image -->
+            {% if item.image %}
+                <img src="{{ item.image }}" alt="{{ item.name }}" class="cart-img">
+            {% else %}
+                <img src="{% static 'pictures/default.png' %}" class="cart-img">
+            {% endif %}
+
+            <!-- Product Details -->
+            <div class="cart-details">
+                <h2>{{ item.name }}</h2>
+                <p>Price: ₹{{ item.price }}</p>
+
+                <div class="quantity-box">
+                    <span>Qty: {{ item.quantity }}</span>
+                </div>
+            </div>
+
+            <!-- Item Total -->
+            <div class="cart-total">
+                ₹{{ item.price|floatformat:2|add:"0"|floatformat:2 }}
+            </div>
+
+            <!-- Remove Button -->
+            <a href="{% url 'remove_from_cart' key %}">
+                <button class="remove">Remove</button>
+            </a>
+
+        </div>
+        {% endfor %}
+
+        <!-- Summary Section -->
+        <div class="cart-summary">
+            <h3>Order Summary</h3>
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span>₹{{ total }}</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>Calculated at checkout</span>
+            </div>
+
+            <div class="summary-row total">
+                <span>Total</span>
+                <span>₹{{ total }}</span>
+            </div>
+
+            <a href="{% url 'checkout' %}">
+                <button class="checkout">Proceed to Checkout</button>
+            </a>
+        </div>
+
+    {% else %}
+        <!-- Empty Cart -->
+        <div style="text-align:center; margin-top:80px;">
+            <h2>Your cart is empty 😢</h2>
+            <p>Add some beautiful handicrafts</p>
+
+            <a href="{% url 'home' %}">
+                <button class="checkout">Shop Now</button>
+            </a>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

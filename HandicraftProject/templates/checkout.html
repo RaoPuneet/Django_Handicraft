@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Handicraft Khazana</title>
+    <link rel="stylesheet" href="{% static 'checkoutcss.css' %}">
+</head>
+<body>
+
+<header class="checkout-header">
+    <div class="container">
+        <h1>Handicraft Khazana</h1>
+        <span>Secure Checkout</span>
+    </div>
+</header>
+
+<div class="checkout-container">
+    <div class="checkout-grid">
+        
+        <div class="delivery-box">
+            <h2>Delivery Address</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-field">
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="John Doe" required>
+                </div>
+                <div class="input-field">
+                    <label>Shipping Address</label>
+                    <input type="text" name="address" placeholder="House No., Street, City" required>
+                </div>
+                <div class="input-field">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="99999-00000" required>
+                </div>
+                <button type="submit" class="pay-btn">Proceed to Payment</button>
+            </form>
+        </div>
+
+        <div class="summary-box">
+            <h3>Order Summary</h3>
+            <div class="item-list">
+                {% for key, item in cart.items %}
+                <div class="summary-item">
+                    <span>{{ item.name }} (x{{ item.quantity }})</span>
+                    <span>₹{{ item.price }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            <hr>
+            <div class="total-line">
+                <span>Subtotal</span>
+                <span>₹{{ total }}</span>
+            </div>
+            <div class="total-line">
+                <span>Shipping</span>
+                <span class="free">FREE</span>
+            </div>
+            <div class="grand-total">
+                <span>Grand Total</span>
+                <span>₹{{ total }}</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

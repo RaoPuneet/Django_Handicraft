@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body>
+
+<div class="auth-box">
+    <h1>Create Account</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="msg">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Username:</label>
+        <input type="text" name="username" required>
+
+        <label>First name:</label>
+        <input type="text" name="first_name" required>
+
+        <label>Last name:</label>
+        <input type="text" name="last_name" required>
+
+        <label>Email address:</label>
+        <input type="email" name="email" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <label>Confirm Password:</label>
+        <input type="password" name="confirm_password" required>
+
+        <label>Role:</label>
+        <select name="role" required>
+            <option value="buyer">Buyer</option>
+            <option value="seller">Seller</option>
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p class="links">
+        Already have account? <a href="{% url 'login' %}">Login</a>
+    </p>
+</div>
+
+</body>
+</html>

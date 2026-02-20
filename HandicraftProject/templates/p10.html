@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Handicraft Khazana Shop</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles1.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Handicraft Khazana Shop</h1>
+    </header>
+    <img src="{% static 'pictures/fomm.png' %}" alt="">
+    <center> <h1>Metal Engraving</h1></center>
+    <section id="products">
+        <article class="product">
+            <img src="{% static 'pictures/fo1.png' %}" alt="Handicraft">
+            <h2>Golden Mughal Lamp</h2>           
+            <p class="price">$19.99</p>
+            <a href="{% url 'payment' %}" target="_blank"><button>Buy Now</button></a>
+        </article>
+
+        <article class="product">
+            <img src="{% static 'pictures/fo2.png' %}" alt="Handicraft">
+            <h2>Safavid Dual-Toned Lamp</h2>
+            <p class="price">$39.99</p>
+            <a href="{% url 'payment' %}" target="_blank"><button>Buy Now</button></a>
+        </article>
+        <article class="product">
+            <img src="{% static 'pictures/fo3.png' %}" alt="Handicraft">
+            <h2>Kalhora Dual Toned Lamp</h2>
+            <p class="price">$31.99</p>
+            <a href="{% url 'payment' %}" target="_blank"><button>Buy Now</button></a>
+        </article>
+
+        <article class="product">
+            <img src="{% static 'pictures/fo4.png' %}" alt="Handicraft">
+            <h2>Mirani Dual Toned Lamp</h2>
+            <p class="price">$35.99</p>
+            <a href="{% url 'payment' %}" target="_blank"><button>Buy Now</button></a>
+        </article>
+
+        <article class="product">
+            <img src="{% static 'pictures/fo5.png' %}" alt="Handicraft">
+            <h2>Aurora Ceiling Lamp</h2>
+            <p class="price">$46.99</p>
+            <a href="{% url 'payment' %}" target="_blank"><button>Buy Now</button></a>
+        </article>
+
+        
+    </section>
+       
+   
+    <footer>
+        <div class="footer-content">
+          <p>&copy; 2023 Handicraft Khazana Shop</p>
+          <p>Contact us: info@handicraftkhazana</p>
+        </div>
+      </footer>
+</body>
+</html>

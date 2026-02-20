@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Handicraft Khazana Shop</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles1.css' %}">
+</head>
+
+<body>
+    <header>
+        <h1>Handicraft Khazana Shop</h1>
+    </header>
+
+    <center> <h1>Kilim</h1></center>
+    <section id="products">
+        <article class="product">
+            <img src="{% static 'pictures/ki1.png' %}" alt="Handicraft">
+            <h2>Sajda Kilim Rug (6ft x 4ft)</h2>           
+            <p class="price">$29.99</p>
+            <a href="{% url 'payment' %}" target="_blank"><button>Buy Now</button></a>
+        </article>
+
+        <article class="product">
+            <img src="{% static 'pictures/ki2.png' %}" alt="Handicraft">
+            <h2>Jashn Kilim Rug (5 ft x 3 ft)</h2>
+            <p class="price">$39.99</p>
+            <a href="{% url 'payment' %}" target="_blank"><button>Buy Now</button></a>
+        </article>
+        <article class="product">
+            <img src="{% static 'pictures/ki3.png' %}" alt="Handicraft">
+            <h2>Guzel Hand-Woven Rug (5ft x 3ft)</h2>
+            <p class="price">$28.99</p>
+            <a href="{% url 'payment' %}" target="_blank"><button>Buy Now</button></a>
+        </article>
+
+        <article class="product">
+            <img src="{% static 'pictures/ki4.png' %}" alt="Handicraft">
+            <h2>Taman Hand-Woven Rug (6ft x 4ft)</h2>
+            <p class="price">$24.99</p>
+            <a href="{% url 'payment' %}" target="_blank"><button>Buy Now</button></a>
+        </article>
+
+        <article class="product">
+            <img src="{% static 'pictures/ki5.png' %}" alt="Handicraft">
+            <h2>Merhaba Hand-Woven Rug (5ft x 3ft)</h2>
+            <p class="price">$19.99</p>
+            <a href="{% url 'payment' %}" target="_blank"><button>Buy Now</button></a>
+        </article>
+
+
+        
+    </section>
+       
+   
+    <footer>
+        <div class="footer-content">
+          <p>&copy; 2023 Handicraft Khazana Shop</p>
+          <p>Contact us: info@handicraftkhazana</p>
+        </div>
+      </footer>
+</body>
+</html>
