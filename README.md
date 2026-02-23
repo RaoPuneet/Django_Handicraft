@@ -1,67 +1,134 @@
-🏺 Handicraft Khazana Shop
-Handicraft Khazana Shop is a specialized e-commerce platform built with Django that connects expert artisans with buyers to showcase and sell unique Indian handicrafts. The platform bridges the gap between traditional craftsmanship and modern commerce, offering a curated space for items like brass engravings, wood carvings, and miniature paintings.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Handicraft Khazana Shop</title>
+    <style>
+        :root {
+            --primary: #5d4037;
+            --secondary: #8d6e63;
+            --accent: #27ae60;
+            --bg: #fdfaf5;
+            --card-bg: #ffffff;
+            --text: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        h1, h2, h3 { color: var(--primary); }
+        h1 { border-bottom: 2px solid var(--secondary); padding-bottom: 10px; }
+        .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .feature-item { 
+            background: var(--bg); 
+            padding: 15px; 
+            border-radius: 8px; 
+            border-left: 4px solid var(--accent);
+        }
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
 
-✨ Key Features
-👤 User Roles & Management
-Dual User Roles: Specialized registration flows for Buyers and Sellers via a custom signup system.
+<div class="container">
+    <span class="badge">v1.0.0</span>
+    <h1>🏺 Handicraft Khazana Shop</h1>
+    
+    <p><strong>Handicraft Khazana Shop</strong> is a specialized e-commerce platform built with <strong>Django</strong> that connects expert artisans with buyers to showcase and sell unique Indian handicrafts. The platform bridges the gap between traditional craftsmanship and modern commerce.</p>
 
-Admin Verification: A manual approval gateway where administrators must verify sellers before they can list products, ensuring marketplace quality.
+    
 
-Secure Auth: Full authentication suite including login, logout, and password reset functionality.
+    <h2>✨ Key Features</h2>
+    <div class="feature-list">
+        <div class="feature-item">
+            <strong>Dual User Roles</strong><br>
+            Specialized registration flows for Buyers and Sellers via a custom signup system.
+        </div>
+        <div class="feature-item">
+            <strong>Admin Verification</strong><br>
+            A manual approval gateway to verify sellers before they can list products.
+        </div>
+        <div class="feature-item">
+            <strong>Artisan Dashboard</strong><br>
+            A private workspace for artisans to manage their inventory in real-time.
+        </div>
+        <div class="feature-item">
+            <strong>Secure Cart</strong><br>
+            Session-based shopping cart with automated email order confirmations.
+        </div>
+    </div>
 
-🛠 Seller Tools
-Dedicated Dashboard: A private workspace for artisans to manage their inventory in real-time.
+    <h2>🚀 Tech Stack</h2>
+    <ul>
+        <li><strong>Backend:</strong> Python 3.13 & Django</li>
+        <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript</li>
+        <li><strong>Database:</strong> SQLite (Development)</li>
+        <li><strong>Communication:</strong> Django Mail Service</li>
+    </ul>
 
-Inventory Control: Sellers can add new masterpieces with images and categories, or remove items they no longer wish to sell.
-
-Artisan Attribution: Every product card on the home page automatically credits the specific artisan who created it.
-
-🛒 Shopping Experience
-New Arrivals: Dynamic homepage section highlighting the latest handcrafted additions.
-
-Category Filtering: Organized browsing by craft type (e.g., Woodwork, Brass, Paintings).
-
-Cart & Checkout: Fully functional session-based shopping cart with automated email order confirmations.
-
-🚀 Tech Stack
-Backend: Python 3.13 & Django
-
-Frontend: HTML5, CSS3, JavaScript
-
-Database: SQLite (default)
-
-Communication: Django Mail for welcome and order notifications
-
-📥 Installation
-Clone the project
-
-Bash
-git clone https://github.com/yourusername/HandicraftKhazana.git
-cd HandicraftKhazana
-Setup Virtual Environment
-
-Bash
+    <h2>📥 Installation</h2>
+    <p>To set up this project locally, follow these commands:</p>
+    <pre>
+# Setup Virtual Environment
 python -m venv .venv
-.venv\Scripts\activate  # On Windows
-Install Dependencies
+.venv\Scripts\activate
 
-Bash
+# Install Django
 pip install django
-Initialize Database
 
-Bash
+# Run Migrations
 python manage.py makemigrations
 python manage.py migrate
-Run the Application
 
-Bash
-python manage.py runserver
-📂 File Highlights
-models.py: Custom UserProfile with role-based logic and Product models with seller foreign keys.
+# Start Server
+python manage.py runserver</pre>
 
-views.py: Robust logic handling secure registration, seller verification, and e-commerce flows.
+    <h2>📂 Core Files</h2>
+    <ul>
+        <li><code>models.py</code>: Role-based UserProfile and Product structures.</li>
+        <li><code>views.py</code>: Secure registration and e-commerce logic.</li>
+        <li><code>main_home.html</code>: Responsive hub with artisan attribution.</li>
+    </ul>
 
-main_home.html: The central hub featuring role-specific navigation and artisan product cards.
+    <hr>
+    <center>
+        <p>© 2026 Handicraft Khazana Shop | Developed by B.Tech CSE Student</p>
+    </center>
+</div>
 
-🛡️ Administrative Control
-Instead of using the command line to manage users, this project includes a custom User Management View where admins can see a "Role" column and click an Approve button to verify new artisans directly in the browser.
+</body>
+</html>
