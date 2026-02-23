@@ -2,133 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Handicraft Khazana Shop</title>
-    <style>
-        :root {
-            --primary: #5d4037;
-            --secondary: #8d6e63;
-            --accent: #27ae60;
-            --bg: #fdfaf5;
-            --card-bg: #ffffff;
-            --text: #333;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        h1, h2, h3 { color: var(--primary); }
-        h1 { border-bottom: 2px solid var(--secondary); padding-bottom: 10px; }
-        .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
-        .feature-item { 
-            background: var(--bg); 
-            padding: 15px; 
-            border-radius: 8px; 
-            border-left: 4px solid var(--accent);
-        }
-        code {
-            background: #eee;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', Courier, monospace;
-        }
-        pre {
-            background: #2d2d2d;
-            color: #ccc;
-            padding: 15px;
-            border-radius: 8px;
-            overflow-x: auto;
-        }
-        .badge {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 20px;
-        }
-    </style>
+    <title>README - Handicraft Khazana Shop</title>
 </head>
 <body>
 
-<div class="container">
-    <span class="badge">v1.0.0</span>
-    <h1>🏺 Handicraft Khazana Shop</h1>
+    <h1>Handicraft Khazana Shop</h1>
     
-    <p><strong>Handicraft Khazana Shop</strong> is a specialized e-commerce platform built with <strong>Django</strong> that connects expert artisans with buyers to showcase and sell unique Indian handicrafts. The platform bridges the gap between traditional craftsmanship and modern commerce.</p>
-
-    
-
-    <h2>✨ Key Features</h2>
-    <div class="feature-list">
-        <div class="feature-item">
-            <strong>Dual User Roles</strong><br>
-            Specialized registration flows for Buyers and Sellers via a custom signup system.
-        </div>
-        <div class="feature-item">
-            <strong>Admin Verification</strong><br>
-            A manual approval gateway to verify sellers before they can list products.
-        </div>
-        <div class="feature-item">
-            <strong>Artisan Dashboard</strong><br>
-            A private workspace for artisans to manage their inventory in real-time.
-        </div>
-        <div class="feature-item">
-            <strong>Secure Cart</strong><br>
-            Session-based shopping cart with automated email order confirmations.
-        </div>
-    </div>
-
-    <h2>🚀 Tech Stack</h2>
-    <ul>
-        <li><strong>Backend:</strong> Python 3.13 & Django</li>
-        <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript</li>
-        <li><strong>Database:</strong> SQLite (Development)</li>
-        <li><strong>Communication:</strong> Django Mail Service</li>
-    </ul>
-
-    <h2>📥 Installation</h2>
-    <p>To set up this project locally, follow these commands:</p>
-    <pre>
-# Setup Virtual Environment
-python -m venv .venv
-.venv\Scripts\activate
-
-# Install Django
-pip install django
-
-# Run Migrations
-python manage.py makemigrations
-python manage.py migrate
-
-# Start Server
-python manage.py runserver</pre>
-
-    <h2>📂 Core Files</h2>
-    <ul>
-        <li><code>models.py</code>: Role-based UserProfile and Product structures.</li>
-        <li><code>views.py</code>: Secure registration and e-commerce logic.</li>
-        <li><code>main_home.html</code>: Responsive hub with artisan attribution.</li>
-    </ul>
+    <p>
+        Handicraft Khazana Shop is a specialized e-commerce platform built with Django that connects expert artisans with buyers to showcase and sell unique Indian handicrafts like wood carvings and brass engravings. The project features role-based access control, allowing verified sellers to manage their own inventories via a dedicated dashboard while providing customers with a curated shopping experience.
+    </p>
 
     <hr>
-    <center>
-        <p>© 2026 Handicraft Khazana Shop | Developed by B.Tech CSE Student</p>
-    </center>
-</div>
+
+    <h2>Core Features</h2>
+    <ul>
+        <li><strong>Role-Based Accounts:</strong> Users can register as either a "Buyer" or a "Seller" using a custom signup form.</li>
+        <li><strong>Seller Dashboard:</strong> A private area for artisans to list new products, view their current inventory, and delete items they no longer wish to sell.</li>
+        <li><strong>Admin Approval System:</strong> A security layer where administrators manually verify seller accounts before they are permitted to list products on the public shop.</li>
+        <li><strong>Product Attribution:</strong> Every item displayed on the home page clearly shows the name of the artisan who created it.</li>
+        <li><strong>Shopping & Checkout:</strong> A fully functional cart system that sends an automated email confirmation to the buyer upon a successful purchase.</li>
+    </ul>
+
+    
+
+    <h2>Technical Stack</h2>
+    <ul>
+        <li><strong>Framework:</strong> Django (Python 3.13)</li>
+        <li><strong>Frontend:</strong> HTML5 and CSS3</li>
+        <li><strong>Database:</strong> SQLite</li>
+        <li><strong>Authentication:</strong> Django built-in authentication extended with a UserProfile model</li>
+    </ul>
+
+    <h2>Installation Guide</h2>
+    <ol>
+        <li>Clone the repository to your local machine.</li>
+        <li>Create a virtual environment: <code>python -m venv .venv</code>.</li>
+        <li>Activate the environment and install Django: <code>pip install django</code>.</li>
+        <li>Generate the database: <code>python manage.py makemigrations</code> followed by <code>python manage.py migrate</code>.</li>
+        <li>Start the server: <code>python manage.py runserver</code>.</li>
+    </ol>
+
+    <h2>Project Logic (File Overview)</h2>
+    <ul>
+        <li><strong>models.py:</strong> Defines the <code>UserProfile</code> (handling roles), <code>Category</code>, and <code>Product</code> (linked to specific sellers).</li>
+        <li><strong>views.py:</strong> Contains the logic for the marketplace, the seller verification process, and the restricted artisan dashboard.</li>
+        <li><strong>urls.py:</strong> Manages the routing for the shop, including the custom user management and approval paths.</li>
+    </ul>
+
+    
+
+    <hr>
+    <p><em>Developed as a B.Tech CSE Project</em></p>
 
 </body>
 </html>
